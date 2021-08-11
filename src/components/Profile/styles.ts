@@ -1,13 +1,30 @@
 import { StyleSheet } from "react-native";
+import { theme } from "../../global/styles/theme";
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexDirection: "row",
   },
 
-  user: {},
+  user: {
+    flexDirection: "row",
+  },
 
-  username: {},
+  username: {
+    fontFamily: theme.fonts.title700,
+    fontSize: 24,
+    color: theme.colors.heading,
+  },
 
-  greeting: {},
+  greeting: {
+    fontFamily: theme.fonts.title500,
+    fontSize: 24,
+    color: theme.colors.heading,
+    marginRight: 6,
+  },
+
+  message: {
+    fontFamily: theme.fonts.text400,
+    color: theme.colors.highlight,
+  },
 });
