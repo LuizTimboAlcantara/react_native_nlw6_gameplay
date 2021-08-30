@@ -18,8 +18,8 @@ type Props = RectButtonProps & {
 export function Category({
   title,
   icon: Icon,
-  hasCheckBox = true,
-  checked = true,
+  hasCheckBox = false,
+  checked = false,
   ...rest
 }: Props) {
   const { secondary40, secondary50, secondary70, secondary85 } = theme.colors;
