@@ -1,5 +1,5 @@
 import React from "react";
-import { ImageBackground, View, Text } from "react-native";
+import { ImageBackground, View, Text, FlatList } from "react-native";
 import { Fontisto } from "@expo/vector-icons";
 import { BorderlessButton } from "react-native-gesture-handler";
 
@@ -9,9 +9,28 @@ import { styles } from "./styles";
 import BannerImg from "../../assets/banner.png";
 
 import { Background } from "../../components/Background";
+import { ListHeader } from "../../components/ListHeader";
 import { Header } from "../../components/Header";
+import { Member } from "../../components/Member";
+import { ListDivider } from "../../components/ListDivider";
+import { ButtonIcon } from "../../components/ButtonIcon";
 
 export function AppointmentDetails() {
+  const members = [
+    {
+      id: "1",
+      username: "Luiz Timbó",
+      avatar_url: "https://github.com/luiztimboalcantara.png",
+      status: "online",
+    },
+    {
+      id: "2",
+      username: "Luiz Timbó",
+      avatar_url: "https://github.com/luiztimboalcantara.png",
+      status: "offline",
+    },
+  ];
+
   return (
     <Background>
       <Header
@@ -31,6 +50,20 @@ export function AppointmentDetails() {
           </Text>
         </View>
       </ImageBackground>
+
+      <ListHeader title="Jogadores" subtitle="Total 3" />
+
+      <FlatList
+        data={members}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <Member data={item} />}
+        ItemSeparatorComponent={() => <ListDivider />}
+        style={styles.members}
+      />
+
+      <View style={styles.footer}>
+        <ButtonIcon title="Entrar na partida" />
+      </View>
     </Background>
   );
 }
